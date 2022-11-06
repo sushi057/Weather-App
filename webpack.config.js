@@ -10,7 +10,11 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: "Weather App",
+      hash: true,
+      title: "Weathering App",
+      myPageHeader: "Weathering with you",
+      template: "./src/index.html",
+      filename: "./index.html",
     }),
   ],
   output: {
