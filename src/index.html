@@ -1,15 +1,63 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title><%= htmlWebpackPlugin.options.title %></title>
-    <script src="./index.js"></script>
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css" />
   </head>
-
   <body>
-    <h1><%= htmlWebpackPlugin.options.myPageHeader %></h1>
-    <h3>Welcome to the Awesome application</h3>
+    <div class="container">
+      <div class="main">
+        <div class="title">
+          <p>Weathering with you</p>
+        </div>
 
-    We will use this page to style our weather app. ok hmm
+        <div class="weather">
+          <p class="temperature">27&#xb0;C</p>
+
+          <div class="location">
+            <p class="place">Darjeeling</p>
+            <div class="place-detail">
+              <span class="time">10:36</span>
+              <span class="day">Tuesday, 22 Oct '19</span>
+            </div>
+          </div>
+
+          <div class="icon">
+            <img src="./images/sun.png" alt="" />
+            <div class="text">Sunny</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="sidebar">
+        <div class="search">
+          <input type="text" />
+          <img src="./images/search.png" alt="" />
+        </div>
+
+        <div class="details">
+          <h4>Weather Details</h4>
+          <ul>
+            <li>
+              <p>Cloudy</p>
+              <p class="value">69%</p>
+            </li>
+            <li>
+              <p>Humidity</p>
+              <p class="value">69%</p>
+            </li>
+            <li>
+              <p>Rain</p>
+              <p class="value">69%</p>
+            </li>
+            <li>
+              <p>Thunderstorms</p>
+              <p class="value">69%</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
