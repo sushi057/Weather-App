@@ -6,6 +6,7 @@ const currentTemp = document.querySelector(".temperature");
 const currentPlace = document.querySelector(".place");
 const currentTime = document.querySelector(".time");
 const curretDay = document.querySelector(".day");
+const weatherText = document.querySelector(".text");
 const humidity = document.querySelector(".humidity");
 const wind = document.querySelector(".wind");
 const cloudy = document.querySelector(".cloudy");
@@ -14,7 +15,6 @@ const inputBar = document.querySelector("input");
 
 inputBar.addEventListener("keypress", function (e) {
   if (e.key == "Enter") {
-    console.log("runnign enter key event");
     displayValues(inputBar.value);
   }
 });
@@ -24,10 +24,10 @@ function displayValues(cityName) {
     `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${keyAPI}`
   )
     .then(function (response) {
+    //   console.log(response.json());
       return response.json();
     })
     .then(function (response) {
-      console.log(response.json);
       let temperaturea = Math.round(response.main.temp - 273.15);
       currentTemp.textContent = temperaturea + "\u00B0C";
 
@@ -38,6 +38,8 @@ function displayValues(cityName) {
       wind.textContent = response.wind.speed + "m/s";
 
       cloudy.textContent = response.clouds.all + "%";
+
+      weatherText.textContent = response.weather[0].main;
     });
 }
 
