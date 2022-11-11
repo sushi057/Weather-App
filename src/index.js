@@ -6,7 +6,6 @@ const currentTemp = document.querySelector(".temperature");
 const currentPlace = document.querySelector(".place");
 const currentTime = document.querySelector(".time");
 const curretDay = document.querySelector(".day");
-const rain = document.querySelector(".rain");
 const humidity = document.querySelector(".humidity");
 const wind = document.querySelector(".wind");
 const cloudy = document.querySelector(".cloudy");
@@ -28,13 +27,11 @@ function displayValues(cityName) {
       return response.json();
     })
     .then(function (response) {
+      console.log(response.json);
       let temperaturea = Math.round(response.main.temp - 273.15);
       currentTemp.textContent = temperaturea + "\u00B0C";
 
       currentPlace.textContent = response.name;
-
-      console.log(response.rain);
-      rain.textContent = response.rain;
 
       humidity.textContent = response.main.humidity + "%";
 
