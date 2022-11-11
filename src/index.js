@@ -3,10 +3,16 @@ import "./images/sun.png";
 
 const keyAPI = "6a05841f2373c91d8b30521b5947eaf8";
 const currentCity = "Kathmandu";
-const temperature = document.querySelector(".temperature");
+const currentTemp = document.querySelector(".temperature");
+const currentPlace = document.querySelector(".place");
+const currentTime = document.querySelector(".time");
+const curretDay = document.querySelector(".day");
+const rain = document.querySelector(".rain");
+const humidity = document.querySelector(".humidity");
+const wind = document.querySelector(".wind");
+const cloudy = document.querySelector(".cloudy");
 
 const inputBar = document.querySelector("input");
-console.log(inputBar);
 
 inputBar.addEventListener("keypress", function (e) {
   if (e.key == "Enter") {
@@ -23,7 +29,19 @@ function displayValues(cityName) {
       return response.json();
     })
     .then(function (response) {
-      let temperatureaValue = Math.round(response.main.temp - 273.15);
-      temperature.textContent = temperatureaValue + "\u00B0C";
+      let temperaturea = Math.round(response.main.temp - 273.15);
+      currentTemp.textContent = temperaturea + "\u00B0C";
+
+      currentPlace.textContent = response.name;
+
+      rain.textContent = response.rain;
+
+      humidity.textContent = response.main.humidity + "%";
+
+      wind.textContent = response.wind.speed + "m/s";
+
+      cloudy.textContent = response.clouds.all + "%";
     });
 }
+
+displayValues("Kathmandu");
