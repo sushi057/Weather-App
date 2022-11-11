@@ -2,7 +2,6 @@ import "./style.css";
 import "./images/sun.png";
 
 const keyAPI = "6a05841f2373c91d8b30521b5947eaf8";
-const currentCity = "Kathmandu";
 const currentTemp = document.querySelector(".temperature");
 const currentPlace = document.querySelector(".place");
 const currentTime = document.querySelector(".time");
@@ -34,6 +33,7 @@ function displayValues(cityName) {
 
       currentPlace.textContent = response.name;
 
+      console.log(response.rain);
       rain.textContent = response.rain;
 
       humidity.textContent = response.main.humidity + "%";
@@ -42,6 +42,18 @@ function displayValues(cityName) {
 
       cloudy.textContent = response.clouds.all + "%";
     });
+}
+
+function weatherCaption(temperature) {
+  //code
+}
+
+function weatherBackground(temperature) {
+  //code
+}
+
+function cToF(temperature) {
+  //code
 }
 
 displayValues("Kathmandu");
